@@ -11,6 +11,7 @@
     "test-watch": "mocha-webpack --watch \"./frontend/test/**/*.test.js\" --webpack-config webpack-test.config.js --require ./frontend/test/setup.js"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "connected-react-router": "^6.3.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
