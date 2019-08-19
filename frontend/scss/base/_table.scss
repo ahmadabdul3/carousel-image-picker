@@ -1,0 +1,53 @@
+
+
+.table-container {
+
+}
+
+.table-load-more {
+  text-align: center;
+  padding: 20px 0;
+
+  span {
+    color: $red;
+    cursor: pointer;
+  }
+
+  img {
+    width: 25px;
+    height: auto;
+  }
+}
+
+table {
+  background: white;
+  width: 100%;
+  box-shadow: $base-box-shadow;
+}
+
+thead {
+  background: $red;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+tbody {
+  font-size: 14px;
+}
+
+tr {
+  border-top: 1px solid #ddd;
+
+  &:first-child {
+    border-top: 0;
+  }
+}
+
+th {
+  padding: 25px 15px 10px;
+}
+
+td {
+  padding: 10px 15px;
+}

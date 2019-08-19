@@ -1,0 +1,225 @@
+
+.carousel-options {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto 20px;
+
+  .form-input {
+    width: 300px;
+    margin-top: 0;
+  }
+
+  @media all and (max-width: 1300px) {
+    width: calc(100% - 100px);
+  }
+}
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 50px;
+  overflow-x: hidden;
+
+  .images-container {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: all 0.5s;
+    min-height: 100px;
+
+    &.animator {
+      transition: all 0.5s;
+    }
+  }
+
+  @media all and (max-width: 1300px) {
+    width: calc(100% - 100px);
+  }
+}
+
+.carousel-image-set-dots {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .dot {
+    padding: 3px;
+    border-radius: 100%;
+    background: darken($background-color, 5%);
+    margin: 0 3px;
+
+    &.selected {
+      background: $blue;
+    }
+  }
+}
+
+.carousel-image {
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  &.selected {
+    .carousel-image__image-container {
+      @include image-selected;
+    }
+  }
+}
+
+.carousel-image__image-container {
+  position: relative;
+  width: calc(100% - 40px);
+  border: 1px solid black;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  @include image-unhovered;
+
+  &:hover {
+    cursor: pointer;
+    @include image-hovered;
+
+    .carousel-image__caption {
+      opacity: 1;
+      transition: opacity 0.2s;
+    }
+  }
+}
+
+.carousel-image__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 1;
+  font-size: rem(22px);
+  line-height: rem(27px);
+  box-sizing: border-box;
+  padding: 0 10px 10px;
+  color: white;
+  background: rgba(black, 0.3);
+  box-shadow: 0 0 15px 15px rgba(black, 0.3);
+  text-shadow: 0 1px 3px black;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.carousel-image__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel-nav-button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  top: calc(50% - 45px);
+  background: $blue;
+  color: white;
+  transition: all 0.4s;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+    top: calc(50% - 50px);
+    transition: all 0.2s;
+  }
+
+  &.disabled {
+    background: darken($background-color, 2%);
+    color: darken($background-color, 30%);
+  }
+
+  &.left {
+    left: -60px;
+  }
+
+  &.right {
+    right: -60px;
+  }
+
+  .fas {
+    font-size: 40px;
+    line-height: 30px;
+    position: relative;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+    &.fa-angle-right {
+      right: -2px;
+    }
+
+    &.fa-angle-left {
+      left: -2px;
+    }
+  }
+
+  @media all and (max-width: 1300px) {
+    &.left {
+      left: -10px;
+    }
+
+    &.right {
+      right: -10px;
+    }
+  }
+}
+
+.empty-carousel-message {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 70px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin: 0 auto;
+
+  @media all and (max-width: 1300px) {
+    width: calc(100% - 100px);
+  }
+
+  p {
+    font-size: 25px;
+    line-height: 32px;
+  }
+}
+
+.image-viewer {
+  margin-top: 50px;
+}
+
+.image-viewer__image {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: auto;
+  border: 3px solid black;
+  border-radius: 20px;
+}
+
+.image-viewer__caption {
+  width: 500px;
+  margin: 20px auto 0;
+  font-size: rem(30px);
+  text-align: center;
+}
+
+.empty-image-viewer-message {
+  margin: 20px auto 0;
+  width: 500px;
+}

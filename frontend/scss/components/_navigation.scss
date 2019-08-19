@@ -1,0 +1,40 @@
+
+.navigation {
+  background: #363f46;
+  font-size: 14px;
+  display: flex;
+}
+
+.nav-left {
+  flex-shrink: 0;
+}
+
+.nav-right {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.nav-item {
+  margin: 15px 20px;
+  display: inline-block;
+  transition: color 0.15s ease;
+  color: $text-color;
+
+  &.selected {
+    color: $red;
+    transition: color 0.15s ease;
+  }
+
+  &:hover {
+    color: darken($red, 20%);
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+}
+
+.nav-item__logo {
+  @extend .nav-item;
+  font-family: 'Pacifico', cursive;
+  color: white;
+  font-size: 20px;
+}

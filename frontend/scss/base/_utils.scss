@@ -1,0 +1,63 @@
+$base-box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2);
+$base-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+// SASS FUNCTION TO CONVERT PX INTO REM
+
+// Defining base font size
+// The default font size for html is 16px
+$base-size: 16;
+//Function to convert px value into rem
+//You can replace rem with any other value you want (rem is most preferred value for web)
+@function rem($pixels, $context: $base-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return $pixels / $context * 1rem;
+}
+// Let's use the size whenever you want
+
+.page-width {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.page-section {
+  @extend .page-width;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.note-worthy-text {
+  color: $green;
+}
+
+.emphasized-text {
+  text-decoration: underline;
+  color: gray;
+}
+
+@mixin image-unhovered {
+  box-shadow: 0 0 0 0 black;
+  transition: box-shadow 0.3s;
+}
+
+@mixin image-hovered {
+  box-shadow: 0 0 0 5px lighten(black, 20%);
+  transition: box-shadow 0.3s;
+}
+
+@mixin image-selected {
+  box-shadow:
+    0 0 0 2px $dark-blue,
+    0 0 0 5px $blue,
+    0 0 0 13px $light-blue;
+  transition: box-shadow 0.2s;
+}

@@ -1,0 +1,167 @@
+.button-container {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+
+  &.disabled {
+    .button-tooltip {
+      display: block;
+      z-index: -10;
+    }
+
+    .button:hover {
+      &+.button-tooltip {
+        z-index: 10;
+        bottom: calc(100% + 10px);
+        transform: scale(1);
+        opacity: 1;
+        transition: all 0.2s cubic-bezier(0.3, 0, 0, 1.3);
+      }
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.button-tooltip {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  width: 200px;
+  left: calc(50% - 100px);
+  bottom: calc(100% - 20px);
+  background: black;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: normal;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1);
+  transform: scale(0.8);
+  transition: all 0.2s cubic-bezier(0.3, 0, 0, 1.3);
+
+  &::before {
+    content: "";
+    padding: 5px;
+    background: black;
+    border-bottom-right-radius: 2px;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: -5px;
+    left: calc(50% - 5px);
+  }
+}
+
+.button {
+  padding: 10px 20px 11px;
+  border: 0;
+  border-radius: 5px;
+  background: darken($background-color, 2%);
+  color: lighten(red, 5%);
+  color: $text-color;
+  letter-spacing: 1px;
+  font-weight: bold;
+  // box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  box-sizing: border-box;
+  outline: none;
+  transition:
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+
+  &:hover {
+    // color: darken(red, 10%);
+    cursor: pointer;
+    background: darken($background-color, 5%);
+    // box-shadow: 0 9px 12px 0 rgba(0, 0, 0, 0.2);
+
+    transition: color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  &:active {
+    // box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    background: darken($background-color, 10%);
+    // color: darken(red, 10%);
+    transition: color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+
+  &:disabled,
+  &[disabled] {
+    color: darken($background-color, 40%);
+  }
+}
+
+.button-blue {
+  @extend .button;
+  color: white;
+  background: darken($light-blue, 10%);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: $blue;
+    transition: background 0.15s ease;
+  }
+
+  &:active {
+    background: $dark-blue;
+    transition: background 0.15s ease;
+  }
+
+  &:disabled,
+  &[disabled] {
+    background: darken($background-color, 2%);
+    color: darken($background-color, 30%);
+    text-shadow: none;
+  }
+}
+
+.red-button {
+  @extend .button;
+  background: $red;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 3px 10px 0 rgba($red, 0.4);
+
+  &:hover {
+    color: white;
+    background: desaturate(darken($red, 15%), 10%);
+    // box-shadow: 0 7px 10px 0 rgba($red, 0.3);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  &:active {
+    color: white;
+    background: desaturate(darken($red, 25%), 10%);
+    // box-shadow: 0 1px 5px 0 rgba($red, 0.4);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+}
+
+.green-button {
+  @extend .button;
+  background: $green;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 3px 10px 0 rgba($green, 0.3);
+
+  &:hover {
+    color: white;
+    background: darken($green, 5%);
+    // box-shadow: 0 7px 10px 0 rgba($green, 0.3);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  &:active {
+    color: white;
+    background: desaturate(darken($green, 10%), 10%);
+    // box-shadow: 0 1px 5px 0 rgba($green, 0.3);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+}
