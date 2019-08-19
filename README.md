@@ -12,3 +12,5 @@ It's on a free dyno so give it a few seconds on initial load
 ## Usage
 go to localhost:3000 to see the app or just go to the live heroku site 
 
+There is definitely room for improvement (both code wise and UI/functionality wise) and refactoring
+
