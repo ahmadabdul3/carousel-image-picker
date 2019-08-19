@@ -313,6 +313,7 @@ class CarouselOptions extends PureComponent {
       updateNumberOfImagesToRender,
       deleteImages,
       toggleMode,
+      mode,
     } = this.props;
 
     return (
@@ -333,12 +334,16 @@ class CarouselOptions extends PureComponent {
           ]}
           onChange={updateNumberOfImagesToRender}
         />
-        <Button
-          text='Delete'
-          tooltipText='First click on pictures in the carousel to select them (Edit Mode)'
-          disabled={this.deleteButtonDisabled}
-          handleClick={deleteImages}
-        />
+        {
+          mode === CAROUSEL_MODE__EDIT ? (
+            <Button
+              text='Delete'
+              tooltipText='First click on pictures in the carousel to select them (Edit Mode)'
+              disabled={this.deleteButtonDisabled}
+              handleClick={deleteImages}
+            />
+          ) : <div />
+        }
       </section>
     );
   }
