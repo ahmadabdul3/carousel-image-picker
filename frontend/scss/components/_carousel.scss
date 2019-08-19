@@ -51,10 +51,10 @@
   justify-content: center;
 
   .dot {
-    padding: 3px;
+    padding: 5px;
     border-radius: 100%;
     background: darken($background-color, 5%);
-    margin: 0 3px;
+    margin: 0 5px;
 
     &.selected {
       background: $blue;
